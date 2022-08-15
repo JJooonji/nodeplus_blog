@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      onDelete: "cascade",//posts 안에 있는 postId가 사라지면 댓글도 사라지게 함.
+      // onDelete: "cascade",//posts 안에 있는 postId가 사라지면 댓글도 사라지게 함.
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -27,7 +27,8 @@ module.exports = {
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.fn("now")
       }
     });
   },
