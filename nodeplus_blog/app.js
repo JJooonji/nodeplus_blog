@@ -4,8 +4,6 @@ const app = express();
 
 const port = 3333;
 
-
-
 //mysql 연결
 const { sequelize } = require('./models')
 
@@ -19,11 +17,12 @@ sequelize.sync({ force: false })
 
 //connetct
 const PostRouter = require("./routes/posts");
+const CommentRouter = require("./routes/comments");
 
 app.use(express.json());//순서가..?
 
 //미들웨어
-app.use('/api', [PostRouter])
+app.use('/api', [PostRouter, CommentRouter])
 app.use(express.urlencoded({ extended: false }))
 
 

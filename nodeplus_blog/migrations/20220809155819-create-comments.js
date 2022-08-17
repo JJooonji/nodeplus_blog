@@ -6,14 +6,14 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      postId: {
         type: Sequelize.INTEGER,
         references: {//posts의 postId와 관계를 맺어줌.
           model: "Posts",
           key: "postId"
         }
-      },
-      postId: {
-        type: Sequelize.INTEGER
       },
       content: {
         type: Sequelize.STRING,
